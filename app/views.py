@@ -25,6 +25,22 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+@app.route('/filelisting')
+def filelisting():
+    if not session.get('logged_in'):
+        abort(401)
+    
+    import os
+    rootdir = os.getcwd()
+    filelist = []
+    
+    for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads/'):
+        for file in files:
+            f = os.path.join(subdir, file) 
+            filelist += [f]
+
+    return render_template('filelisting.html',filelist=filelist)
+
 @app.route('/add-file', methods=['POST', 'GET'])
 def add_file():
     if not session.get('logged_in'):
