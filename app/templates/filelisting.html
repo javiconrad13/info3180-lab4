@@ -2,12 +2,12 @@
 
 {% block main %}
     <ul >
+      </br>
+      <h1>File Listing</h1>
       <ul>
-
-            {% for file in filelist %}
-                <li> {{ file }} </li>
-            {% endfor %}
-
+        {% for file in filelist %}
+            <li> {{ file }} </li>
+        {% endfor %}
       </ul>
     </ul>
 {% endblock %}
