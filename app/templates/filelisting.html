@@ -6,7 +6,11 @@
       <h1>File Listing</h1>
       <ul>
         {% for file in filelist %}
+          {% if ".jpg" in file %}
+            <li><img src="{{ url_for('static', filename="uploads/"+file)}}" style="width:180px; height: 250px;"></img>
+          {% else %}
             <li> {{ file }} </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </ul>

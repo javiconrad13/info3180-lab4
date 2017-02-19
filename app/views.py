@@ -36,8 +36,8 @@ def filelisting():
     
     for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads/'):
         for file in files:
-            f = os.path.join(subdir, file) 
-            filelist += [f]
+         #   f = os.path.join(subdir, file) 
+            filelist += [file]
 
     return render_template('filelisting.html',filelist=filelist)
 
